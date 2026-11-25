@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>ARAS BARISTA - معرفی سامانه باریستای هوشمند و منوی دیجیتال</title>
+  <style>
+    @font-face {
+      font-family: 'YekanBakh';
+      src: url('file:///C:/Users/Asus/AppData/Local/Microsoft/Windows/Fonts/YekanBakh-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'YekanBakh';
+      src: url('file:///C:/Users/Asus/AppData/Local/Microsoft/Windows/Fonts/YekanBakh-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'YekanBakh';
+      src: url('file:///C:/Users/Asus/AppData/Local/Microsoft/Windows/Fonts/YekanBakh-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'YekanBakh';
+      src: url('file:///C:/Users/Asus/AppData/Local/Microsoft/Windows/Fonts/YekanBakh-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'YekanBakh';
+      src: url('file:///C:/Users/Asus/AppData/Local/Microsoft/Windows/Fonts/YekanBakh-ExtraBold.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+    }
+
+    @page {
+      size: 13.3333in 7.5in;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    html, body {
+      width: 1280px;
+      background: #ffffff;
+      font-family: 'YekanBakh', 'Segoe UI', Tahoma, sans-serif;
+      color: #2b2b2b;
+      direction: rtl;
+    }
+
+    .slide {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      background: #ffffff;
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .slide:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
+
+    /* Decorative organic background shapes matching ARAS sample PDF */
+    .bg-shapes {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      padding: 58px 72px 68px 72px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Footer for pages 2-7 */
+    .slide-footer {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      padding: 0 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      color: #7c7c7c;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .slide-footer .footer-center {
+      direction: ltr;
+      font-family: 'Segoe UI', 'YekanBakh', sans-serif;
+      letter-spacing: 0.2px;
+    }
+
+    .slide-footer .page-num {
+      position: absolute;
+      right: 58px;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 15px;
+      color: #6b6b6b;
+    }
+
+    /* Slide Title */
+    .slide-title {
+      font-size: 50px;
+      font-weight: 700;
+      color: #5a5a5a;
+      line-height: 1.25;
+      margin-bottom: 28px;
+      text-align: right;
+    }
+
+    /* Slide 1: Cover */
+    .cover-header {
+      margin-top: 18px;
+      text-align: right;
+      align-self: flex-start;
+    }
+
+    .cover-brand-en {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 58px;
+      font-weight: 700;
+      color: #585858;
+      letter-spacing: 1px;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .cover-tagline {
+      margin-top: 12px;
+      font-size: 36px;
+      font-weight: 600;
+      color: #787878;
+      text-align: right;
+    }
+
+    .cover-logo-block {
+      position: absolute;
+      bottom: 72px;
+      left: 72px;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 520px;
+    }
+
+    .company-name-fa {
+      margin-top: 14px;
+      font-size: 25px;
+      font-weight: 600;
+      color: #1f1f1f;
+      letter-spacing: -0.2px;
+    }
+
+    .company-phones {
+      margin-top: 8px;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #2b2b2b;
+      direction: ltr;
+    }
+
+    /* Slide 2: Problem statement */
+    .problem-text {
+      margin-top: 66px;
+      font-size: 25px;
+      line-height: 2.05;
+      font-weight: 400;
+      color: #2c2c2c;
+      text-align: justify;
+    }
+
+    /* Slide 3: Solution bullets */
+    .solution-intro {
+      font-size: 23px;
+      font-weight: 600;
+      color: #3a3a3a;
+      margin-bottom: 22px;
+      line-height: 1.75;
+    }
+
+    .clean-list {
+      list-style: disc;
+      padding-right: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .clean-list li {
+      font-size: 21.5px;
+      line-height: 1.75;
+      color: #2b2b2b;
+      font-weight: 400;
+    }
+
+    /* Slide 4: Why ARAS Barista */
+    .features-list {
+      list-style: disc;
+      padding-right: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-top: 2px;
+    }
+
+    .features-list li {
+      font-size: 17.5px;
+      line-height: 1.55;
+      color: #2b2b2b;
+    }
+
+    .features-list li strong {
+      font-weight: 800;
+      color: #1f1f1f;
+    }
+
+    .closing-statement {
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.75;
+      color: #333333;
+      font-weight: 500;
+    }
+
+    /* Tables (Slides 5 & 6) */
+    .aras-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 2px;
+      margin-top: 4px;
+      table-layout: fixed;
+    }
+
+    .aras-table th {
+      background: #614b79;
+      color: #ffffff;
+      font-size: 18.5px;
+      font-weight: 700;
+      padding: 11px 14px;
+      text-align: right;
+    }
+
+    .aras-table td {
+      font-size: 16.5px;
+      font-weight: 500;
+      color: #1f1f1f;
+      padding: 8.5px 14px;
+      vertical-align: middle;
+      line-height: 1.4;
+    }
+
+    .aras-table tbody tr:nth-child(odd) td {
+      background: #d6d3dc;
+    }
+
+    .aras-table tbody tr:nth-child(even) td {
+      background: #eceaf0;
+    }
+
+    /* Slide 6 pricing tables */
+    .pricing-table th,
+    .pricing-table td {
+      text-align: center;
+      padding: 12px 12px;
+    }
+
+    .pricing-table th {
+      font-size: 19px;
+    }
+
+    .pricing-table td {
+      font-size: 17.5px;
+      font-weight: 600;
+    }
+
+    .pricing-table .merged-cell {
+      background: #e1dee7 !important;
+      font-weight: 700;
+      color: #2a2234;
+    }
+
+    .addons-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 2px;
+      margin-top: 18px;
+      table-layout: fixed;
+    }
+
+    .addons-table th {
+      background: #614b79;
+      color: #ffffff;
+      font-size: 17.5px;
+      font-weight: 700;
+      padding: 12px 10px;
+      text-align: center;
+    }
+
+    .addons-table td {
+      background: #d6d3dc;
+      color: #1f1f1f;
+      font-size: 17.5px;
+      font-weight: 700;
+      padding: 13px 10px;
+      text-align: center;
+    }
+
+    .addons-table td.label-col {
+      background: #614b79;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .pricing-note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #777777;
+      text-align: right;
+    }
+
+    /* Slide 7: Next Step */
+    .next-step-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 26px;
+      text-align: center;
+    }
+
+    .next-step-title {
+      font-size: 56px;
+      font-weight: 700;
+      color: #555555;
+      margin-bottom: 34px;
+    }
+
+    .next-step-sub {
+      font-size: 38px;
+      font-weight: 700;
+      color: #464646;
+      margin-bottom: 105px;
+    }
+
+    .contact-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .contact-line {
+      font-size: 32px;
+      font-weight: 700;
+      color: #363636;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-val {
+      font-family: 'Segoe UI', sans-serif;
+      direction: ltr;
+      font-weight: 700;
+      color: #2f2f2f;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 1: COVER                                                         -->
+  <!-- ===================================================================== -->
+  <section class="slide">
+    <svg class="bg-shapes" viewBox="0 0 1280 720" preserveAspectRatio="none">
+      <!-- Organic gray shapes matching ARAS cover layout -->
+      <path d="M135,280 C250,235 385,180 485,185 C515,187 490,222 395,260 C275,308 165,335 135,318 C112,305 118,288 135,280 Z" fill="#DBDBDB"/>
+      <path d="M-20,385 C45,355 120,335 170,350 C205,360 210,415 200,500 C188,600 135,695 45,735 L-30,735 Z" fill="#DBDBDB"/>
+      <path d="M275,365 C375,315 510,248 565,255 C625,262 715,385 765,455 C795,498 765,570 695,625 C615,688 535,675 435,650 C335,625 270,565 265,485 C260,415 245,380 275,365 Z" fill="#DBDBDB"/>
+      <path d="M845,530 C925,495 1015,515 1135,555 C1225,585 1275,610 1245,675 L1200,740 L690,740 C745,655 785,555 845,530 Z" fill="#DBDBDB"/>
+      <path d="M60,720 C135,672 225,655 345,680 C435,698 525,715 585,735 L55,735 Z" fill="#D4D4D4"/>
+    </svg>
+
+    <div class="slide-content">
+      <div class="cover-header">
+        <div class="cover-brand-en">ARAS BARISTA</div>
+        <div class="cover-tagline">سفارش هوشمند، فروش بیشتر.</div>
+      </div>
+
+      <div class="cover-logo-block">
+        <!-- Vector ARAS Logo (Black A, R, S + Purple Chevron A) -->
+        <svg width="470" height="125" viewBox="0 0 470 125" xmlns="http://www.w3.org/2000/svg">
+          <!-- First A -->
+          <polygon points="10,115 62,15 88,15 138,115 110,115 96,86 48,86 35,115" fill="#0B0B0B"/>
+          <polygon points="56,66 86,66 71,36" fill="#FFFFFF"/>
+          <!-- R -->
+          <path d="M132,15 L208,15 C235,15 248,30 248,50 C248,68 236,80 214,83 L244,115 L210,115 L182,84 L158,84 L158,115 L132,115 Z M158,37 L158,63 L200,63 C214,63 221,58 221,50 C221,41 214,37 200,37 Z" fill="#0B0B0B"/>
+          <!-- Purple A Chevron -->
+          <polygon points="242,115 294,15 322,15 372,115 342,115 308,45 272,115" fill="#561C75"/>
+          <!-- S -->
+          <path d="M452,15 L376,15 C354,15 342,27 342,44 C342,61 354,72 376,72 L426,72 C436,72 441,76 441,83 C441,90 436,94 426,94 L350,94 L350,115 L428,115 C452,115 466,102 466,83 C466,64 452,52 428,52 L378,52 C369,52 365,48 365,42 C365,37 369,34 378,34 L452,34 Z" fill="#0B0B0B"/>
+        </svg>
+        <div class="company-name-fa">شرکت فنی مهندسی طلوع بینش اَرَس پارسی</div>
+        <div class="company-phones">09981921918 | 09043041918</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 2: PROBLEM STATEMENT                                             -->
+  <!-- ===================================================================== -->
+  <section class="slide">
+    <svg class="bg-shapes" viewBox="0 0 1280 720" preserveAspectRatio="none">
+      <path d="M-20,-10 L115,-10 C125,45 135,115 128,158 C122,188 55,182 10,165 L-20,145 Z" fill="#DBDBDB"/>
+      <path d="M182,35 C265,-10 385,-20 455,-15 L555,95 C565,120 495,215 445,252 C405,278 275,215 198,175 C175,160 170,50 182,35 Z" fill="#DBDBDB"/>
+      <path d="M510,-15 L845,-15 C840,25 765,58 655,78 C605,86 555,55 510,-15 Z" fill="#DBDBDB"/>
+    </svg>
+
+    <div class="slide-content">
+      <h1 class="slide-title">مسئله‌ای که شما با آن درگیرید</h1>
+      <p class="problem-text">
+        شاید در مدیریت کافه خود با این تجربه مواجه شده باشید: نوشیدنی‌ها و آیتم‌های باکیفیتی دارید، اما بسیاری از مشتریان در برابر منوی شلوغ مردد می‌مانند و در نهایت به همان انتخاب‌های همیشگی و کم‌سود بسنده می‌کنند. منوهای کاغذی و حتی منوهای دیجیتال ساده، امکان پیشنهاد هوشمند، اعمال تخفیف لحظه‌ای یا راهنمایی مشتری بر اساس سلیقه، بودجه و کالری را ندارند. نتیجه این وضعیت، از دست رفتن فرصت‌های فروش مکمل (مانند کیک روز و کوکی رژیمی)، خوابیدن موجودی آیتم‌های روزانه و کاهش میانگین مبلغ هر فاکتور است.
+      </p>
+    </div>
+
+    <footer class="slide-footer">
+      <span class="footer-center">aras-group.net | 09981921918 | 09043041918</span>
+      <span class="page-num">2</span>
+    </footer>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 3: SOLUTION                                                      -->
+  <!-- ===================================================================== -->
+  <section class="slide">
+    <svg class="bg-shapes" viewBox="0 0 1280 720" preserveAspectRatio="none">
+      <path d="M-20,-10 L115,-10 C125,45 135,115 128,158 C122,188 55,182 10,165 L-20,145 Z" fill="#DBDBDB"/>
+      <path d="M182,35 C265,-10 385,-20 455,-15 L555,95 C565,120 495,215 445,252 C405,278 275,215 198,175 C175,160 170,50 182,35 Z" fill="#DBDBDB"/>
+      <path d="M510,-15 L845,-15 C840,25 765,58 655,78 C605,86 555,55 510,-15 Z" fill="#DBDBDB"/>
+    </svg>
+
+    <div class="slide-content">
+      <h1 class="slide-title">چه راه حلی وجود دارد؟</h1>
+      <p class="solution-intro">شاید تصور کنید هوشمندسازی تجربه سفارش در کافه پیچیده و دست‌نیافتنی است، اما این‌طور نیست. تصور کنید:</p>
+      <ul class="clean-list">
+        <li>باریستای هوشمندی که در ۳ مرحله کوتاه، ذائقه، دمای دلخواه، میزان کافئین، بازه کالری و بودجه مشتری را می‌سنجد و بهترین گزینه‌های منو را به همراه «پیشنهاد نهایی کافه» معرفی می‌کند.</li>
+        <li>منوی دیجیتال دوحالته (نمای جدول کلاسیک کافه و کارت‌های تصویری) با امکان انتخاب لاین قهوه (۷۰-۳۰، ۸۰-۲۰، ۱۰۰٪ عربیکا)، سینگل/دبل شات و طعم‌های متنوع.</li>
+        <li>پیشنهاد مکمل هوشمند (Upsell) که متناسب با انتخاب مشتری (کیک‌های تازه روز یا کوکی رژیمی برای مشتریان دارای سقف کالری) و با تخفیف ویژه، میانگین فروش هر سفارش را بالا می‌برد.</li>
+        <li>سبد خرید سریع و یکپارچه که مشتری می‌تواند همان‌جا روی هر آیتم تعداد را تغییر دهد یا حذف کند و سفارش میز خود را مستقیم به پیشخوان ارسال نماید.</li>
+        <li>پنل مدیریت اختصاصی برای صاحب کافه جهت تغییر لحظه‌ای قیمت‌ها، اعمال تخفیف، مدیریت موجودی و مشاهده تحلیل سودآوری سفارش‌ها.</li>
+      </ul>
+    </div>
+
+    <footer class="slide-footer">
+      <span class="footer-center">aras-group.net | 09981921918 | 09043041918</span>
+      <span class="page-num">3</span>
+    </footer>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 4: WHY ARAS BARISTA                                              -->
+  <!-- ===================================================================== -->
+  <section class="slide">
+    <svg class="bg-shapes" viewBox="0 0 1280 720" preserveAspectRatio="none">
+      <path d="M-20,-10 L115,-10 C125,45 135,115 128,158 C122,188 55,182 10,165 L-20,145 Z" fill="#DBDBDB"/>
+      <path d="M182,35 C265,-10 385,-20 455,-15 L555,95 C565,120 495,215 445,252 C405,278 275,215 198,175 C175,160 170,50 182,35 Z" fill="#DBDBDB"/>
+      <path d="M510,-15 L845,-15 C840,25 765,58 655,78 C605,86 555,55 510,-15 Z" fill="#DBDBDB"/>
+    </svg>
+
+    <div class="slide-content">
+      <h1 class="slide-title">چرا باریستای هوشمند ارس؟</h1>
+      <ul class="features-list">
+        <li><strong>مشاوره هوشمند و شخصی‌سازی‌شده:</strong> تحلیل هم‌زمان حس‌وحال، دما، کافئین، بازه کالری واقعی منو و سقف بودجه برای هدایت سریع مشتری به انتخاب ایده‌آل.</li>
+        <li><strong>افزایش هوشمند میانگین فاکتور:</strong> نمایش خودکار مکمل‌های هماهنگ (کیک‌های روز یا کوکی رژیمی) با برجسته‌سازی تخفیف‌های تنظیم‌شده توسط مدیریت.</li>
+        <li><strong>شخصی‌سازی کامل نوشیدنی:</strong> پشتیبانی از ماتریس قیمت لاین‌های قهوه، سینگل/دبل شات، طعم‌های فرعی (فندق، کارامل، نارگیل و...)، شیر داغ‌تر و توضیحات باریستا.</li>
+        <li><strong>تجربه خرید سریع و بی‌دردسر:</strong> تغییر تعداد (+ / -) و حذف مستقیم آیتم‌ها از روی کارت‌ها و جدول منو بدون نیاز به مراجعه مداوم به سبد خرید.</li>
+        <li><strong>کنترل کامل در پنل مدیریت:</strong> ویرایش آنی منو، تعیین درصد تخفیف هر آیتم با یک کلیک، مدیریت موجودی و رصد لحظه‌ای وضعیت سفارش میزها.</li>
+        <li><strong>تحلیل اقتصادی و گردش انبار:</strong> اولویت‌دهی هوشمند به آیتم‌های پرسودتر و دارای موجودی بیشتر جهت افزایش سود خالص کافه.</li>
+        <li><strong>اقتصادی و بدون هزینه چاپ مجدد:</strong> حذف کامل هزینه بازچاپ منوهای کاغذی در زمان تغییر قیمت‌ها یا افزودن آیتم‌های فصلی.</li>
+      </ul>
+      <p class="closing-statement">
+        باریستای هوشمند ارس، تلاش می‌کند فقط یک منوی دیجیتال ساده در اختیار شما قرار ندهد، بلکه یک دستیار فروش هوشمند باشد تا ارتباط مؤثرتری با مشتریان کافه برقرار کرده و سودآوری کسب‌وکار خود را ارتقا دهید.
+      </p>
+    </div>
+
+    <footer class="slide-footer">
+      <span class="footer-center">aras-group.net | 09981921918 | 09043041918</span>
+      <span class="page-num">4</span>
+    </footer>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 5: COMPARISON TABLE                                              -->
+  <!-- ===================================================================== -->
+  <section class="slide">
+    <svg class="bg-shapes" viewBox="0 0 1280 720" preserveAspectRatio="none">
+      <path d="M-20,-10 L115,-10 C125,45 135,115 128,158 C122,188 55,182 10,165 L-20,145 Z" fill="#DBDBDB"/>
+      <path d="M182,35 C265,-10 385,-20 455,-15 L555,95 C565,120 495,215 445,252 C405,278 275,215 198,175 C175,160 170,50 182,35 Z" fill="#DBDBDB"/>
+      <path d="M510,-15 L845,-15 C840,25 765,58 655,78 C605,86 555,55 510,-15 Z" fill="#DBDBDB"/>
+    </svg>
+
+    <div class="slide-content">
+      <h1 class="slide-title" style="margin-bottom: 22px;">مقایسه</h1>
+      <table class="aras-table">
+        <colgroup>
+          <col style="width: 31%;" />
+          <col style="width: 41%;" />
+          <col style="width: 28%;" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>ویژگی نرم‌افزار</th>
+            <th>باریستای هوشمند ارس</th>
+            <th>دیگر راه‌حل‌ها (منوهای ساده)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>پیشنهاد هوشمند بر اساس سلیقه</td>
+            <td>باریستای هوشمند ۳ مرحله‌ای با نشان پیشنهاد نهایی</td>
+            <td>ندارند</td>
+          </tr>
+          <tr>
+            <td>فیلتر کالری و پیشنهاد رژیمی</td>
+            <td>بازه‌های کالری واقعی منو + پیشنهاد کوکی رژیمی</td>
+            <td>ندارند</td>
+          </tr>
+          <tr>
+            <td>افزایش فروش مکمل (Upsell)</td>
+            <td>پیشنهاد هوشمند کیک/دسر با تخفیف ویژه</td>
+            <td>پشتیبانی محدود</td>
+          </tr>
+          <tr>
+            <td>شخصی‌سازی لاین قهوه و طعم‌ها</td>
+            <td>انتخاب لاین دانه، شات، طعم فرعی و توضیحات باریستا</td>
+            <td>پشتیبانی محدود</td>
+          </tr>
+          <tr>
+            <td>نمایش منوی دوحالته</td>
+            <td>جدول کلاسیک کافه + نمای کارت‌های تصویری</td>
+            <td>فقط لیست ساده یا فایل PDF</td>
+          </tr>
+          <tr>
+            <td>مدیریت سریع سبد خرید</td>
+            <td>تغییر تعداد و حذف مستقیم روی هر کارت و ردیف منو</td>
+            <td>نیاز به مراجعه به صفحه سبد</td>
+          </tr>
+          <tr>
+            <td>اعمال تخفیف لحظه‌ای مدیریت</td>
+            <td>تنظیم درصد تخفیف از پنل با نمایش برجسته برای مشتری</td>
+            <td>ندارند</td>
+          </tr>
+          <tr>
+            <td>گزارش‌گیری و تحلیل سودآوری</td>
+            <td>رهگیری زنده سفارش‌ها + تحلیل سود و موجودی</td>
+            <td>پشتیبانی محدود</td>
+          </tr>
+          <tr>
+            <td>هزینه نگهداری و به‌روزرسانی</td>
+            <td>اقتصادی، آنی و بدون نیاز به چاپ مجدد</td>
+            <td>گران (هزینه چاپ یا کارمزد)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer class="slide-footer">
+      <span class="footer-center">aras-group.net | 09981921918 | 09043041918</span>
+      <span class="page-num">5</span>
+    </footer>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 6: SALES PANEL / PRICING                                         -->
+  <!-- ===================================================================== -->
+  <section class="slide">
+    <svg class="bg-shapes" viewBox="0 0 1280 720" preserveAspectRatio="none">
+      <path d="M-20,-10 L115,-10 C125,45 135,115 128,158 C122,188 55,182 10,165 L-20,145 Z" fill="#DBDBDB"/>
+      <path d="M182,35 C265,-10 385,-20 455,-15 L555,95 C565,120 495,215 445,252 C405,278 275,215 198,175 C175,160 170,50 182,35 Z" fill="#DBDBDB"/>
+      <path d="M510,-15 L845,-15 C840,25 765,58 655,78 C605,86 555,55 510,-15 Z" fill="#DBDBDB"/>
+    </svg>
+
+    <div class="slide-content">
+      <h1 class="slide-title" style="margin-bottom: 24px;">پنل فروش</h1>
+
+      <table class="aras-table pricing-table">
+        <colgroup>
+          <col style="width: 30%;" />
+          <col style="width: 29%;" />
+          <col style="width: 17%;" />
+          <col style="width: 24%;" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>ویژگی</th>
+            <th>سال اول</th>
+            <th>تمدید</th>
+            <th>پلن</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>سامانه منوی دیجیتال + باریستای هوشمند (طلایی)</td>
+            <td>۲۵,۰۰۰,۰۰۰ تومان / راه‌اندازی کامل</td>
+            <td rowspan="2" class="merged-cell">سالانه ۲۰٪ مبلغ لایسنس</td>
+            <td>شامل تحلیل سود و پشتیبانی VIP</td>
+          </tr>
+          <tr>
+            <td>سامانه منوی دیجیتال + سفارش‌گیری میز (نقره‌ای)</td>
+            <td>۱۵,۰۰۰,۰۰۰ تومان / راه‌اندازی منو</td>
+            <td>شامل منوی دوحالته و پنل ادمین</td>
+          </tr>
+          <tr>
+            <td>هر شعبه اضافه</td>
+            <td>۸,۰۰۰,۰۰۰ تومان / لایسنس یک‌ساله</td>
+            <td>—</td>
+            <td>مدیریت متمرکز چندشعبه‌ای</td>
+          </tr>
+          <tr>
+            <td>هزینه‌ی پشتیبانی و به‌روزرسانی</td>
+            <td>یک سال رایگان</td>
+            <td>—</td>
+            <td>پشتیبانی آنلاین و تلفنی</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="addons-table">
+        <colgroup>
+          <col style="width: 18%;" />
+          <col style="width: 20.5%;" />
+          <col style="width: 20.5%;" />
+          <col style="width: 20.5%;" />
+          <col style="width: 20.5%;" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>ماژول‌های افزودنی</th>
+            <th>QR و دامنه اختصاصی</th>
+            <th>اتصال به درگاه پرداخت</th>
+            <th>چاپگر فیش بار</th>
+            <th>باشگاه مشتریان و پیامک</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label-col">تعرفه (تومان)</td>
+            <td>رایگان (هدیه)</td>
+            <td>۳,۰۰۰,۰۰۰</td>
+            <td>۴,۰۰۰,۰۰۰</td>
+            <td>۵,۰۰۰,۰۰۰</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pricing-note">
+        * مبالغ فوق به صورت پیشنهادی و نمونه درج شده‌اند و متناسب با نیاز هر کافه قابل سفارشی‌سازی هستند.
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span class="footer-center">aras-group.net | 09981921918 | 09043041918</span>
+      <span class="page-num">6</span>
+    </footer>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 7: NEXT STEP / CONTACT                                           -->
+  <!-- ===================================================================== -->
+  <section class="slide">
+    <svg class="bg-shapes" viewBox="0 0 1280 720" preserveAspectRatio="none">
+      <path d="M-20,-10 L115,-10 C125,45 135,115 128,158 C122,188 55,182 10,165 L-20,145 Z" fill="#DBDBDB"/>
+      <path d="M182,35 C265,-10 385,-20 455,-15 L555,95 C565,120 495,215 445,252 C405,278 275,215 198,175 C175,160 170,50 182,35 Z" fill="#DBDBDB"/>
+      <path d="M510,-15 L845,-15 C840,25 765,58 655,78 C605,86 555,55 510,-15 Z" fill="#DBDBDB"/>
+    </svg>
+
+    <div class="slide-content">
+      <div class="next-step-wrap">
+        <div class="next-step-title">قدم بعدی؟</div>
+        <div class="next-step-sub">هماهنگی جلسه نیازسنجی و دمو زنده</div>
+
+        <div class="contact-stack">
+          <div class="contact-line">
+            <span>وب‌سایت:</span>
+            <span class="contact-val">aras-group.net</span>
+          </div>
+          <div class="contact-line">
+            <span>ایمیل:</span>
+            <span class="contact-val">info@aras-group.net</span>
+          </div>
+          <div class="contact-line">
+            <span>تلفن:</span>
+            <span class="contact-val">09981921918 | 09043041918</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span class="footer-center">aras-group.net | 09981921918 | 09043041918</span>
+      <span class="page-num">7</span>
+    </footer>
+  </section>
+
+</body>
+</html>

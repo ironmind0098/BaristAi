@@ -1,0 +1,6 @@
+{
+  "name": "BaristaHub - سامانه هوشمند کافی‌شاپ و سفارش آنلاین",
+  "description": "سامانه جامع هوشمند کافی‌شاپ شامل پیشنهاد سفارش بر اساس سلیقه و بودجه، بهینه‌سازی سود و موجودی، منو دیجیتال با QR کد، رزرو آنلاین میز، باشگاه مشتریان و پنل مدیریت مالی و انبارداری",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
